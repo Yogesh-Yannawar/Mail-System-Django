@@ -1,0 +1,48 @@
+{% extends 'signup_temp.html' %}
+{% load widget_tweaks %}
+{% block content %}
+    
+    <form method="POST">
+        {% if errors %}
+    <div class="alert alert-danger">
+        {% for field, msgs in errors.items %}
+            {% for msg in msgs %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    {% endif %}
+        {% csrf_token %}
+        <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card shadow-lg p-4" style="width: 28rem;">
+            <h3 class="text-center mb-4">Login</h3>
+        <!-- Username -->
+        <div class="mb-3">
+            <label for="id_username" class="form-label">Username</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                {{ form.username|add_class:"form-control" }}
+            </div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+            <label for="id_password" class="form-label">Password</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                {{ form.password|add_class:"form-control" }}
+            </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+
+    <hr>
+    <p class="text-center mt-2">
+        Don’t have an account?
+        <a href="{% url 'signup' %}" class="text-decoration-none">Register here</a>
+    </p>
+{% endblock %}

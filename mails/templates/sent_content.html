@@ -1,0 +1,25 @@
+{% extends 'dashboard_temp.html' %}
+{% block title %}Compose{% endblock %}
+
+{% block content %}
+<style>
+    tr th{
+        text-align: center;
+    }
+</style>
+<div class="card shadow-sm p-4" style="border-radius:15px; max-width:700px; margin:auto; margin-top: -60%; padding-left: 200px;margin-right: 200px;">
+    <p class="text-end p-1"><b>sent at : </b>{{data.datetime}}</p>
+    <h3 class="mb-4 text-center" style="font-family: sans-serif;">SENT MAILS DETAILS</h3>
+        
+    <p><b>TO : </b> {{data.to_user}}</p>
+    <p><b>FROM : </b> {{data.from_user}}</p>
+    <p><b>Subject :</b> {{data.subject}}</p>
+    <p><b>Message : </b> {{data.mail_content}}</p>
+    <h2>Attachments : </h2>
+    <p class="text-center">
+        <a href="{{data.attachment.url}}">{{data.attachment}}</a>
+    </p>
+
+</div>
+{% endblock %}
+

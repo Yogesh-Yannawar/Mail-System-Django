@@ -1,0 +1,40 @@
+{% extends 'dashboard_temp.html' %}
+{% block title %}Compose{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm p-4 " style="border-radius:15px; max-width:700px; margin:auto; margin-top: -62%; padding-left: 200px;margin-right: 200px;">
+    <h3 class="mb-4 text-center">Compose Mail</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="from_user" class="form-label">From</label>
+            <input type="text" id="from_user" name="from_user" class="form-control" value="{{request.user.email}}" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="to_user" class="form-label">To</label>
+            <input type="text" id="to_user" name="to_user" class="form-control" placeholder="Recipient email">
+        </div>
+
+        <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject">
+        </div>
+
+        <div class="mb-3">
+            <label for="mail_content" class="form-label">Message</label>
+            <textarea id="mail_content" name="mail_content" class="form-control" rows="8" placeholder="Write your message here..."></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="attachment" class="form-label">Attachment</label>
+            <input type="file" id="attachment" name="attachment" class="form-control">
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">Send</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

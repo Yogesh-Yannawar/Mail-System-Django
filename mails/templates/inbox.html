@@ -1,0 +1,33 @@
+{% extends 'dashboard_temp.html' %}
+{% block title %}Compose{% endblock %}
+
+{% block content %}
+<style>
+    tr th,td{
+        text-align: center;
+    }
+</style>
+<div class="card shadow-sm p-4" style="border-radius:15px; max-width:900px; margin:auto; margin-top: -60%; padding-left: 200px;margin-right: -50px;">
+    <h3 class="mb-4 text-center" style="font-family: sans-serif;">Inbox Page</h3>
+    
+    <table class="table-bordered border" >
+        <tr>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Delete</th>
+        </tr>
+        {% for data in qs %}
+        <tr>
+            <td><a href="{% url 'content' data.id %}" class="text-decoration-none">{{data.subject}}</a></td>
+            <td>{{ data.datetime|date:"d F Y H:i" }}</td>
+            <td><a href="/delete/{{data.id}}" onclick="return confirm('Do You want to Delete this Mail?');"><span class="bi bi-trash-fill"></span></a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3" align="center" style="background-color: darkgray;">Email Does not Exists</td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+</div>
+{% endblock %}
