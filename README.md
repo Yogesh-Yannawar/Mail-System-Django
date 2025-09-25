@@ -53,10 +53,11 @@ python manage.py runserver
 
 ## 📸 Screenshots
 
-### 🏠 Home / Dashboard
-![Home Screenshot](https://raw.githubusercontent.com/Yogesh-Yannawar/Mail-System-Django/main/Screenshot%202025-09-25%20094533.png)
+### ✉️ Compose Mail
 
-### ✉️ Login Page
+![Compose Mail](https://raw.githubusercontent.com/Yogesh-Yannawar/Mail-System-Django/main/Screenshot%202025-09-25%20094533.png)
+
+### 🏠 Login Page
 ![Login Page](https://raw.githubusercontent.com/Yogesh-Yannawar/Mail-System-Django/main/Screenshot%202025-09-25%20094637.png)
 
 
